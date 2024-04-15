@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="form-container">
+    <h1>Fiche Produit</h1>
+    <form #produitForm="ngForm" (ngSubmit)="validerFormulaire()">
+      <div class="form-group">
+        <label for="id">Id:</label>
+        <input
+          id="id"
+          name="id"
+          type="text"
+          [(ngModel)]="nouveauProduit.id"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="code">Code:</label>
+        <input
+          type="text"
+          name="code"
+          [(ngModel)]="nouveauProduit.code"
+        />
+      </div>
+      <div class="form-group">
+        <label for="designation">Désignation:</label>
+        <input
+          type="text"
+          name="designation"
+          [(ngModel)]="nouveauProduit.designation"
+        />
+      </div>
+      <div class="form-group">
+        <label for="prix">Prix:</label>
+        <input
+          type="text"
+          name="prix"
+          [(ngModel)]="nouveauProduit.prix"
+        />
+      </div>
+      <div class="form-actions">
+        <button
+          type="submit"
+          #validerButton
+          [disabled]="!produitForm.form.valid"
+        >
+          Valider
+        </button>
+        <button type="button" (click)="effacerSaisie()">Effacer</button>
+      </div>
+    </form>
+  </div>
+</div>

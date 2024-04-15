@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="form-container">
+    <div class="form-container" *ngIf="afficherFormulaireEdition">
+    <h1>Fiche Produit</h1>
+    <form #produitForm="ngForm" (ngSubmit)="validerFormulaire(produitForm)">
+      <div class="form-group">
+        <label for="id">Id:</label>
+        <input
+          id="id"
+          name="id"
+          type="text"
+          [(ngModel)]="produitCourant.id"
+          required
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="code">Code:</label>
+        <input type="text" name="code" [(ngModel)]="produitCourant.code" />
+      </div>
+      <div class="form-group">
+        <label for="designation">Désignation:</label>
+        <input
+          type="text"
+          name="designation"
+          [(ngModel)]="produitCourant.designation"
+        />
+      </div>
+      <div class="form-group">
+        <label for="prix">Prix:</label>
+        <input type="text" name="prix" [(ngModel)]="produitCourant.prix" />
+      </div>
+      <div class="form-actions">
+        <button type="submit" #validerButton [disabled]="!produitForm.form.valid">
+          Valider
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="list-container">
+    <h1>Liste des produits</h1>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Code</th>
+          <th>Désignation</th>
+          <th>Prix</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of produits">
+          <td>{{ p.id }}</td>
+          <td>{{ p.code }}</td>
+          <td>{{ p.designation }}</td>
+          <td>{{ p.prix }}</td>
+          <td>
+            
+            <button (click)="editerProduit(p)"
+            class="btn btn-secondary btn-lg active"
+               aria-pressed="true">
+               <i class="bi bi-pencil-square"></i>
+              Editer
+            
+            </button>
+          </td>
+          <td>
+            <button (click) ="supprimerProduit(p)" 
+            class="btn btn-danger"> 
+            <i class="bi bi-trash"></i> 
+            Supprimer 
+          </button>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

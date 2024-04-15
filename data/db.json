@@ -1,0 +1,22 @@
+{
+  "produits": [
+    {
+      "id": "2",
+      "code": "Tab__B",
+      "designation": "table MDF ST",
+      "prix": "250"
+    },
+    {
+      "id": "3",
+      "code": "Tab_N",
+      "designation": "Table verre noire",
+      "prix": "600"
+    },
+    {
+      "id": "1",
+      "code": "CH_SOT",
+      "designation": "Chaise Top",
+      "prix": "25"
+    }
+  ]
+}
